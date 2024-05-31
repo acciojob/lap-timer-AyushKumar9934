@@ -8,15 +8,12 @@ const App = () => {
    useEffect(()=>{
     return ()=> clearInterval(intervalTime.current);
    },[])
-  function handleStart(){
+   function handleStart(){
     clearInterval(intervalTime.current);
-    if(!intervalTime.current){
-    intervalTime.current=setInterval(()=>{
-      setTrackingTime((prevTime)=>prevTime+1);
-    },1);}
-    
-
-  }
+    intervalTime.current = setInterval(() => {
+        setTrackingTime((prevTime) => prevTime + 1);
+    }, 10);
+}
   function handleStop(){
     if(intervalTime.current){
     clearInterval(intervalTime.current);
@@ -40,10 +37,10 @@ const App = () => {
 
   return (
     <div>
-         {`${pad(Math.floor(trackingTime / 3600))}:${pad(Math.floor((trackingTime / 60) % 60))}:${pad(trackingTime % 60)}`}
+         {pad(Math.floor(trackingTime / 3600))}:{pad(Math.floor((trackingTime / 60) % 60))}:{pad(trackingTime % 60)}
          <div>
          The lap items are :{lapItem.map((item,index)=>{
-        return<ul> <li> <p key={index}> {`${pad(Math.floor(item / 3600))}:${pad(Math.floor((item / 60) % 60))}:${pad(item % 60)}`}</p></li> </ul>
+        return<ul> <li> <p>{pad(Math.floor(item / 3600))}:{pad(Math.floor((item / 60) % 60))}:{pad(item % 60)}</p></li> </ul>
          })}    </div>
         
          <div id="root" >
