@@ -37,10 +37,10 @@ const App = () => {
 
   return (
     <div>
-         {pad(Math.floor(trackingTime / 3600))}:{pad(Math.floor((trackingTime / 60) % 60))}:{pad(trackingTime % 60)}
+         {`${pad(Math.floor(trackingTime / 360000))}:${pad(Math.floor((trackingTime / 6000) % 60))}:${pad(Math.floor((trackingTime / 100) % 60))}:${pad(trackingTime % 100)}`}
          <div>
          The lap items are :{lapItem.map((item,index)=>{
-        return<ul> <li> <p>{pad(Math.floor(item / 3600))}:{pad(Math.floor((item / 60) % 60))}:{pad(item % 60)}</p></li> </ul>
+        return<ul> <li> <p>{`${pad(Math.floor(item / 360000))}:${pad(Math.floor((item / 6000) % 60))}:${pad(Math.floor((item / 100) % 60))}:${pad(item % 100)}`}</p></li> </ul>
          })}    </div>
         
          <div id="root" >
