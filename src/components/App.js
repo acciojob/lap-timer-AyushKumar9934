@@ -42,15 +42,15 @@ const App = () => {
     <div>
          {`${pad(Math.floor(trackingTime / 3600))}:${pad(Math.floor((trackingTime / 60) % 60))}:${pad(trackingTime % 60)}`}
          <div>
-         The lap items are :<ul>{lapItem.map((item,index)=>{
-        return <li> <p key={index}> {`${pad(Math.floor(item / 3600))}:${pad(Math.floor((item / 60) % 60))}:${pad(item % 60)}`}</p></li>
-         })}    </ul> </div>
+         The lap items are :{lapItem.map((item,index)=>{
+        return<ul> <li> <p key={index}> {`${pad(Math.floor(item / 3600))}:${pad(Math.floor((item / 60) % 60))}:${pad(item % 60)}`}</p></li> </ul>
+         })}    </div>
         
-         
+         <div id="root" >
         <button onClick={handleStart} >Start</button>
         <button onClick={handleStop} >Stop</button>
         <button onClick={handleLap} >Lap</button>
-        <button onClick={handleReset} >Reset</button>
+        <button onClick={handleReset} >Reset</button></div>
 
     </div>
   )
